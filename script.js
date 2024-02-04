@@ -41,25 +41,17 @@ var start = function() {
   const config = { appId: "ctzn-glitch" };
   const cursors = {};
   const roomCap = 33;
-  const fruits = [
-    "🍏",
-    "🍎",
-    "🍐",
-    "🍊",
-    "🍋",
+  const fcIcons = [
+    "🎩",
+    "⏩",
+    "🟪",
+    "🔵",
     "🍌",
-    "🍉",
-    "🍇",
-    "🍓",
-    "🍈",
-    "🍒",
-    "🍑",
-    "🥭",
-    "🍍",
-    "🥥",
-    "🥝"
+    "💜",
+    "🥝",
+    "⌐◨-◨"
   ];
-  const randomFruit = () => fruits[Math.floor(Math.random() * fruits.length)];
+  const randomFCIcon = () => fcIcons[Math.floor(Math.random() * fcIcons.length)];
 
   let mouseX = 0;
   let mouseY = 0;
@@ -173,8 +165,8 @@ var start = function() {
   });
 
   window.addEventListener("click", () => {
-    const payload = [randomFruit(), mouseX, mouseY];
-    dropFruit(payload);
+    const payload = [randomFCIcon(), mouseX, mouseY];
+    dropFCIcon(payload);
     if (room) {
       sendClick(payload);
     }
@@ -183,9 +175,9 @@ var start = function() {
   window.addEventListener("touchstart", e => {
     const x = e.touches[0].clientX / window.innerWidth;
     const y = e.touches[0].clientY / window.innerHeight;
-    const payload = [randomFruit(), x, y];
+    const payload = [randomFCIcon(), x, y];
 
-    dropFruit(payload);
+    dropFCIcon(payload);
     moveCursor([x, y], selfId);
 
     if (room) {
@@ -196,8 +188,8 @@ var start = function() {
   
 
   window.addEventListener("click", () => {
-    const payload = [randomFruit(), mouseX, mouseY];
-    dropFruit(payload);
+    const payload = [randomFCIcon(), mouseX, mouseY];
+    dropFCIcon(payload);
     if (room) {
       sendClick(payload);
     }
@@ -305,7 +297,7 @@ var start = function() {
     room.onPeerLeave(removeCursor);
     room.onPeerStream(handleStream);
     getMove(moveCursor);
-    getClick(dropFruit);
+    getClick(dropFCIcon);
     getChat(updateChat);
     getCmd(handleCmd);
     getPic(handlePic);
@@ -556,7 +548,7 @@ var start = function() {
     }
   }
 
-  function dropFruit([fruit, x, y]) {
+  function dropFCIcon([fruit, x, y]) {
     const el = document.createElement("div");
     el.className = "fruit";
     el.innerText = fruit;

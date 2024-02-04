@@ -19,13 +19,13 @@ Audio & Video Chat, Whiteboarding, Image and Screensharing with a minimal interf
 
 #### Embedding
 ```html
-<iframe src="https://webrtctzn.glitch.me"
+<iframe src="https://cocolab.vercel.app"
   width="100%" height="100%" frameBorder="0" allowusermedia 
   allow="microphone; camera; encrypted-media;">
 </iframe>
 ```
 
 ##### Ingredients
-
+The real hero here is [Meething](https://github.com/meething/webrtctzn) 
 * [Meething](https://github.com/meething)
 * [Trystero](https://github.com/dmotz/trystero)
