@@ -29,7 +29,7 @@ var start = function() {
     sendCmd({ peerId: peerId, cmd: "hand", focus: document.visibilityState });
   });
   
-  var userStroke = "#c2c2c2";
+  var userStroke = "#855DCC";
   const colorPicker = byId("favcolor");
   colorPicker.addEventListener("change", function(event){
     userStroke = event.target.value;
@@ -138,7 +138,7 @@ var start = function() {
   window.addEventListener("mouseup", e => {
     //console.log('mouse stop');
     isDrawing = false;
-    sendCmd({ peerId: selfId, cmd: "draw", plots: plots, color: "#b2b2b2" });
+    sendCmd({ peerId: selfId, cmd: "draw", plots: plots, color: "#855DCC" });
     plots = [];
   });
   window.addEventListener("mousedown", e => {
@@ -156,7 +156,7 @@ var start = function() {
 
     if (isDrawing) {
       if (plots.length>50){
-        sendCmd({ peerId: selfId, cmd: "draw", plots: plots, color: "#b2b2b2" });
+        sendCmd({ peerId: selfId, cmd: "draw", plots: plots, color: "#855DCC" });
         plots = [];
       }
       plots.push({ x: mouseX, y: mouseY });
@@ -300,6 +300,7 @@ var start = function() {
     getClick(dropFCIcon);
     getChat(updateChat);
     getCmd(handleCmd);
+    console.log('handlePic',handlePic);
     getPic(handlePic);
 
     // mappings
@@ -331,7 +332,7 @@ var start = function() {
     var img = document.createElement("img");
     img.src = URL.createObjectURL(new Blob([data]));
     img.onload = function() {
-      //console.log("img.src", img.src);
+      console.log("img.src", img.src);
       ctx.drawImage(
         img,
         meta.pos.x * window.innerWidth,
@@ -374,8 +375,8 @@ var start = function() {
         var us = byId("user_" + id);
         if (us) us.innerText = data.username;
       } else if (data.cmd == "img" && data) {
-        //console.log("got image", data);
-        //displayImageOnCanvas(data.img, data.pos);
+        console.log("got image", data);
+        displayImageOnCanvas(data.img, data.pos);
       } else if (data.cmd == "draw" && data.plots) {
         if (data.plots && data.color) drawOnCanvas(data.color, data.plots);
       } else if (data.cmd == "clear") {
@@ -452,7 +453,7 @@ var start = function() {
     el.style.float = "left";
     el.className = `cursor${isSelf ? " self" : ""}`;
     el.style.left = el.style.top = "-99px";
-    img.src = "static/hand.png";
+    img.src = "static/white-purple.png";
     txt.innerText = isSelf ? "you" : id.slice(0, 4);
     el.appendChild(img);
     el.appendChild(txt);
