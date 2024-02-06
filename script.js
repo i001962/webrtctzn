@@ -577,15 +577,9 @@ var start = function() {
   };
 
   window.shareUrl = function() {
-    function copyTextToClipboard(text) {
-      navigator.clipboard.writeText(text).then(function() {
-          console.log('Text successfully copied to clipboard');
-      }, function(err) {
-          console.error('Failed to copy text to clipboard', err);
-      });
-  }
+    var url = "https://warpcast.com/~/compose?text=https://frame-roulette.vercel.app";
+    window.open(url, '_blank');
   
-      copyTextToClipboard('https://warpcast.com/~/compose?text=https://frame-roulette.vercel.app/');
    /*  if (!window.getSelection) {
       alert("Clipboard not available, sorry!");
       return;
