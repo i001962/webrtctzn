@@ -577,7 +577,16 @@ var start = function() {
   };
 
   window.shareUrl = function() {
-    if (!window.getSelection) {
+    function copyTextToClipboard(text) {
+      navigator.clipboard.writeText(text).then(function() {
+          console.log('Text successfully copied to clipboard');
+      }, function(err) {
+          console.error('Failed to copy text to clipboard', err);
+      });
+  }
+  
+      copyTextToClipboard('https://warpcast.com/~/compose?text=https://frame-roulette.vercel.app/');
+   /*  if (!window.getSelection) {
       alert("Clipboard not available, sorry!");
       return;
     }
@@ -606,7 +615,7 @@ var start = function() {
           '<i class="fa fa-share-alt fa-1x" aria-hidden="true"></i>';
       }, 1000);
     }
-    
+     */
   };
   
   function notifyMe(msg) {
