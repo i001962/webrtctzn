@@ -108979,3 +108979,35 @@ label {
     margin: 15px 0 0 15px;
 }
 
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 5px;
+  }
+
+  .flex.flex-row {
+    flex-direction: column;
+  }
+
+  #call {
+    max-width: 100%;
+  }
+
+  .grid.grid-flow-row.grid-cols-4 {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .chatbox {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  h1.text-5xl {
+    font-size: 2rem; /* Smaller font size on mobile */
+  }
+
+  .sidenav {
+    width: 100%;
+  }
+
+  /* Add more styles as needed */
+}
