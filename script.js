@@ -29,12 +29,8 @@ var start = function() {
     sendCmd({ peerId: peerId, cmd: "hand", focus: document.visibilityState });
   });
   
-  var userStroke = "#855DCC";
-  const colorPicker = byId("favcolor");
-  colorPicker.addEventListener("change", function(event){
-    userStroke = event.target.value;
-    closeNav();
-  }, false);
+
+
 
   //const peerInfo = byId("peer-info");
   //const noPeersCopy = peerInfo.innerText;
@@ -47,9 +43,12 @@ var start = function() {
     "🟪",
     "🔵",
     "🍌",
-    "💜",
     "🥝",
-    "⌐◨-◨"
+    "⌐◨-◨",
+    "🎩",
+    "🎩",
+    "🎩",
+    "🎩"
   ];
   const randomFCIcon = () => fcIcons[Math.floor(Math.random() * fcIcons.length)];
 
@@ -120,13 +119,7 @@ var start = function() {
   window.history.pushState({ path: refresh }, "", refresh);
   
   
-  // focus on chat input all the time
-  var focus = function() {
-    document.getElementById("chatbox").focus();
-  };
-  focus();
-  window.addEventListener("focus", focus);
-
+ 
   document.documentElement.className = "ready";
   addCursor(selfId, true);
 
@@ -195,19 +188,7 @@ var start = function() {
     }
   });
 
-  window.chat = function(msg) {
-    if (!msg || msg.length < 1) return;
-    updateChat({ msg: msg, username: userName }, selfId);
-    if (room) sendChat({ msg: msg, username: userName });
-    return;
-  };
-  chatbox.addEventListener("keypress", function(e) {
-    if (e.keyCode == 13) {
-      window.chat(chatbox.value);
-      chatbox.value = "";
-      return false;
-    }
-  });
+  
 
   var streaming = false;
   var muted = false;
@@ -453,7 +434,7 @@ var start = function() {
     el.style.float = "left";
     el.className = `cursor${isSelf ? " self" : ""}`;
     el.style.left = el.style.top = "-99px";
-    img.src = "static/white-purple.png";
+    img.src = "static/hand.png";
     txt.innerText = isSelf ? "you" : id.slice(0, 4);
     el.appendChild(img);
     el.appendChild(txt);
