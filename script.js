@@ -89,7 +89,7 @@ var start = function() {
       '<i class="fa fa-video fa-2x" aria-hidden="true"></i>';
   }
   if (urlParams.has("audio")) {
-    features.video = false;
+    features.video = true;
     talkbutton.innerHTML =
       '<i class="fa fa-video fa-2x" aria-hidden="true"></i>';
   }
