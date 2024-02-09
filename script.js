@@ -23,7 +23,7 @@ var start = function() {
   const shareScreenButton = byId("share-screen");
   const shareView = byId("shareview");
   const peerGrid = byId("peer-grid");
-  var features = { audio: true, video: false };
+  var features = { audio: true, video: true };
 
   document.addEventListener("visibilitychange", function(event) {
     sendCmd({ peerId: peerId, cmd: "hand", focus: document.visibilityState });
@@ -558,7 +558,7 @@ var start = function() {
   };
 
   window.shareUrl = function() {
-    var url = "https://warpcast.com/~/compose?text=https://frame-roulette.vercel.app";
+    var url = "https://warpcast.com/~/compose?text=https://tophattalks.vercel.app";
     window.open(url, '_blank');
   
    /*  if (!window.getSelection) {
