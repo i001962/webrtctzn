@@ -153,7 +153,7 @@ var start = function() {
         plots = [];
       }
       plots.push({ x: mouseX, y: mouseY });
-      drawOnCanvas(userStroke, plots, true);
+      //drawOnCanvas(userStroke, plots, true);
     }
   });
 
